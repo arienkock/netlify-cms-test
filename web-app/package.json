@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "start-cms-proxy": "netlify-cms-proxy-server"
   },
   "dependencies": {
-    "next": "9.5.3",
+    "netlify-cms-proxy-server": "^1.3.6",
+    "next": "^9.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }

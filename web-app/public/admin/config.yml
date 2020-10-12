@@ -1,5 +1,20 @@
 backend:
   name: git-gateway
-  branch: master
+
+local_backend: true
 
 publish_mode: editorial_workflow
+media_folder: "web-app/public/images"
+public_folder: "/images"
+
+collections:
+  - name: "project"
+    label: "Project"
+    folder: "data/projects"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
