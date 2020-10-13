@@ -12,9 +12,29 @@ collections:
     label: "Project"
     folder: "data/projects"
     create: true
+    format: "json"
+    identifier_field: id
+    summary: "{{name}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "id", name: "id", widget: "uuid" }
+      - { label: "name", name: "name", widget: "string" }
+      - {
+          label: "Customer",
+          name: "customer",
+          widget: "relation",
+          collection: "company",
+          value_field: "id",
+          search_fields: ["name"],
+          display_fields: ["name"],
+        }
+      - { label: "Business goal", name: "business_goal", widget: "markdown" }
+  - name: "company"
+    label: "Company"
+    folder: "data/companies"
+    create: true
+    format: "json"
+    identifier_field: id
+    summary: "{{name}}"
+    fields:
+      - { label: "id", name: "id", widget: "uuid" }
+      - { label: "name", name: "name", widget: "string" }
